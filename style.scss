@@ -88,7 +88,7 @@ main {
 			"telegram github"
 			"twitch email"
 			/ 1fr 1fr;
-		grid-gap: 0.5rem;
+		gap: 0.5rem;
 		@include areas(telegram, github, twitch, email);
 
 		> a {

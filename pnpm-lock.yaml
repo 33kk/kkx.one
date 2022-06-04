@@ -4,6 +4,7 @@ specifiers:
   postcss: ^8.4.14
   postcss-inline-svg: ^5.0.0
   postcss-preset-env: ^7.7.1
+  prettier: ^2.6.2
   ress: ^5.0.2
   sass: ^1.52.2
   vite: ^2.9.9
@@ -15,6 +16,7 @@ devDependencies:
   postcss: 8.4.14
   postcss-inline-svg: 5.0.0_postcss@8.4.14
   postcss-preset-env: 7.7.1_postcss@8.4.14
+  prettier: 2.6.2
   sass: 1.52.2
   vite: 2.9.9_sass@1.52.2
 
@@ -1010,6 +1012,12 @@ packages:
       nanoid: 3.3.4
       picocolors: 1.0.0
       source-map-js: 1.0.2
+    dev: true
+
+  /prettier/2.6.2:
+    resolution: {integrity: sha512-PkUpF+qoXTqhOeWL9fu7As8LXsIUZ1WYaJiY/a7McAQzxjk82OF0tibkFXVCDImZtWxbvojFjerkiLb0/q8mew==}
+    engines: {node: '>=10.13.0'}
+    hasBin: true
     dev: true
 
   /readdirp/3.6.0:

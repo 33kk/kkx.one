@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" href="/assets/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="/node_modules/ress/dist/ress.min.css">
-		<link rel="stylesheet" href="/style.scss">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" href="/assets/favicon.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="/node_modules/ress/dist/ress.min.css" />
+		<link rel="stylesheet" href="/style.scss" />
 		<title>Marko Gonchar (33KK)</title>
-  </head>
-  <body>
+	</head>
+	<body>
 		<main>
-			<img class="avatar" src="/assets/avatar-512.jpg" alt="Avatar">
+			<img class="avatar" src="/assets/avatar-512.jpg" alt="Avatar" />
 			<div class="name">
 				<h1 class="full">Marko Gonchar</h1>
 				<h3 class="username">@33KK</h3>
@@ -25,52 +25,52 @@
 			</div>
 		</main>
 		<script>
-		function copyFallback(text) {
-			const activeElement = document.activeElement;
-			let textArea = document.createElement("textarea");
-			textArea.value = text;
+			function copyFallback(text) {
+				const activeElement = document.activeElement;
+				let textArea = document.createElement("textarea");
+				textArea.value = text;
 
-			textArea.style.top = "0";
-			textArea.style.left = "0";
-			textArea.style.position = "fixed";
+				textArea.style.top = "0";
+				textArea.style.left = "0";
+				textArea.style.position = "fixed";
 
-			document.body.appendChild(textArea);
-			textArea.focus();
-			textArea.select();
+				document.body.appendChild(textArea);
+				textArea.focus();
+				textArea.select();
 
-			document.execCommand('copy');
+				document.execCommand("copy");
 
-			document.body.removeChild(textArea);
-			try {
-				activeElement.focus();
-			} catch {}
-		}
-
-		function copy(text) {
-			if (!navigator.clipboard) {
-				copyFallback(text);
-				return;
+				document.body.removeChild(textArea);
+				try {
+					activeElement.focus();
+				} catch {}
 			}
-			navigator.clipboard.writeText(text);
-		}
 
-		for (const button of document.querySelectorAll("button[data-copy]")) {
-			const initialHTML = button.innerHTML;
-			let timeout;
+			function copy(text) {
+				if (!navigator.clipboard) {
+					copyFallback(text);
+					return;
+				}
+				navigator.clipboard.writeText(text);
+			}
 
-			button.addEventListener("click", (e) => {
-				copy(button.dataset.copy);
+			for (const button of document.querySelectorAll("button[data-copy]")) {
+				const initialHTML = button.innerHTML;
+				let timeout;
 
-				button.innerHTML = `<span class="icon check"></span>Copied!`;
-				button.dataset.copied = true;
+				button.addEventListener("click", (e) => {
+					copy(button.dataset.copy);
 
-				clearTimeout(timeout);
-				timeout = setTimeout((e) => {
-					button.innerHTML = initialHTML;
-					delete button.dataset.copied;
-				}, 1000);
-			})
-		}
+					button.innerHTML = `<span class="icon check"></span>Copied!`;
+					button.dataset.copied = true;
+
+					clearTimeout(timeout);
+					timeout = setTimeout((e) => {
+						button.innerHTML = initialHTML;
+						delete button.dataset.copied;
+					}, 1000);
+				});
+			}
 		</script>
-  </body>
+	</body>
 </html>

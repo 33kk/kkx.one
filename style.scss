@@ -41,7 +41,7 @@ body {
 @mixin icons($icons...) {
 	@each $icon in $icons {
 		&.#{$icon} {
-			mask-image: url("/assets/icons/#{$icon}.svg");
+			mask-image: svg-load("assets/icons/#{$icon}.svg");
 		}
 	}
 }

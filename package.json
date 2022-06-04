@@ -9,6 +9,7 @@
   },
   "devDependencies": {
     "postcss": "^8.4.14",
+    "postcss-inline-svg": "^5.0.0",
     "postcss-preset-env": "^7.7.1",
     "sass": "^1.52.2",
     "vite": "^2.9.9"

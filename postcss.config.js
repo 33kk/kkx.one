@@ -1,6 +1,6 @@
- module.exports = {
+module.exports = {
 	plugins: [
-		require("postcss-preset-env")(),
 		require("postcss-inline-svg"),
+		require("postcss-preset-env")(),
 	]
 }

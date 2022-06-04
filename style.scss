@@ -2,6 +2,7 @@
 	--text: hsl(0deg, 0%, 80%);
 	--background-2: hsl(0deg, 0%, 12%);
 	--background-1: hsl(0deg, 0%, 16%);
+	--active: hsl(230deg, 50%, 50%);
 	--shadow-color: hsla(0deg, 0%, 0%, 0.5);
 }
 
@@ -10,6 +11,7 @@
 		--text: hsl(0deg, 0%, 20%);
 		--background-1: hsl(0deg, 0%, 90%);
 		--background-2: hsl(0deg, 0%, 85%);
+		--active: hsl(230deg, 60%, 60%);
 		--shadow-color: hsla(0deg, 0%, 50%, 0.5);
 	}
 }
@@ -90,7 +92,7 @@ main {
 		@include areas(telegram, github, anilist, discord, twitch, email);
 		
 		> button[data-copied], a:active {
-			background: hsl(230deg, 50%, 50%);
+			background: var(--active);
 		}
 
 		> * {

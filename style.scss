@@ -32,61 +32,86 @@ body {
 
 @mixin areas($areas...) {
 	@each $area in $areas {
-		.#{$area} {
+		> .#{$area} {
 			grid-area: $area;
 		}
 	}
 }
 
+.icon {
+	display: block;
+	width: 1.5rem;
+	height: 1.5rem;
+	mask-size: cover;
+	background: var(--text);
+
+	&.telegram {
+		mask-image: url(/assets/icons/telegram.svg);
+	}
+	&.github {
+		mask-image: url(/assets/icons/github.svg);
+	}
+	&.twitch {
+		mask-image: url(/assets/icons/twitch.svg);
+	}
+	&.email {
+		mask-image: url(/assets/icons/email.svg);
+	}
+}
+
+
 main {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	align-items: center;
+
+	gap: 1rem;
 	margin: 0 auto;
 	padding: 1.5rem;
 	border-radius: 1rem;
 
 	background:	var(--background-2);
 	box-shadow: 1rem 1rem 5rem var(--shadow-color);
+	text-shadow: 0.2rem 0.2rem 1rem var(--shadow-color);
 
-	display: grid;
-	text-align: center;
-	justify-items: center;
-
-	grid:
-		"avatar avatar"
-		"name name"
-		"telegram github"
-		"twitch email"
-		/ 1fr 1fr;
-	grid-gap: 0.5rem;
-
-	@include areas(avatar, name, telegram, github, twitch, email);
-
-	> * {
-		width: 100%;
-		height: 100%;
-	}
-	
-	.avatar {
-		max-width: 15rem;
-		border-radius: 7.5rem;
+	> .avatar {
+		width: 16rem;
+		border-radius: 50%;
 		box-shadow: 0.2rem 0.2rem 1rem var(--shadow-color);
 	}
 
-	.name, .username {
-		text-shadow: 0.2rem 0.2rem 1rem var(--shadow-color);
-	}
+	> .links {
+		display: grid;
+	
+		grid:
+			"telegram github"
+			"twitch email"
+			/ 1fr 1fr;
+		grid-gap: 0.5rem;
+		@include areas(telegram, github, twitch, email);
 
-	.link {
-		background:	var(--background-1);
-		text-decoration: none;
-		border-radius: 1rem;
-		color: var(--text);
-		padding: 0.5rem;
-		outline: none;
-		box-shadow: 0 0 0.1rem var(--shadow-color);
-		transition: box-shadow 0.2s ease-in-out;
+		> a {
+			display: inline-flex;
+			align-items: center;
 
-		&:hover, &:focus {
-			box-shadow: 0.2rem 0.2rem 1rem var(--shadow-color);
+			gap: 0.5rem;
+			height: 3rem;
+			padding: 0 1rem;
+			border-radius: 1.5rem;
+
+			background:	var(--background-1);
+			color: var(--text);
+
+			text-decoration: none;
+			outline: none;
+
+			box-shadow: 0 0 0.1rem var(--shadow-color);
+			transition: box-shadow 0.2s ease-in-out;
+
+			&:hover, &:focus {
+				box-shadow: 0.2rem 0.2rem 1rem var(--shadow-color);
+			}
 		}
 	}
 }

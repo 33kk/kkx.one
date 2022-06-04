@@ -18,9 +18,59 @@
 			<div class="links">
 				<a target="_blank" class="telegram" href="https://t.me/g33kk"><span class="icon telegram"></span>Telegram</a>
 				<a target="_blank" class="github" href="https://github.com/33kk"><span class="icon github"></span>GitHub</a>
+				<a target="_blank" class="anilist" href="https://anilist.co/user/33kk"><span class="icon anilist"></span>AniList</a>
+				<button class="discord" data-copy="33KK#3349"><span class="icon discord"></span>Discord</button>
 				<a target="_blank" class="twitch" href="https://twitch.tv/33kk"><span class="icon twitch"></span>Twitch</a>
 				<a target="_blank" class="email" href="mailto:marko@pepega.club"><span class="icon email"></span>Email</a>
 			</div>
 		</main>
+		<script>
+		function copyFallback(text) {
+			const activeElement = document.activeElement;
+			let textArea = document.createElement("textarea");
+			textArea.value = text;
+
+			textArea.style.top = "0";
+			textArea.style.left = "0";
+			textArea.style.position = "fixed";
+
+			document.body.appendChild(textArea);
+			textArea.focus();
+			textArea.select();
+
+			document.execCommand('copy');
+
+			document.body.removeChild(textArea);
+			try {
+				activeElement.focus();
+			} catch {}
+		}
+
+		function copy(text) {
+			if (!navigator.clipboard) {
+				copyFallback(text);
+				return;
+			}
+			navigator.clipboard.writeText(text);
+		}
+
+		for (const button of document.querySelectorAll("button[data-copy]")) {
+			const initialHTML = button.innerHTML;
+			let timeout;
+
+			button.addEventListener("click", (e) => {
+				copy(button.dataset.copy);
+
+				button.innerHTML = `<span class="icon check"></span>Copied!`;
+				button.dataset.copied = true;
+
+				clearTimeout(timeout);
+				timeout = setTimeout((e) => {
+					button.innerHTML = initialHTML;
+					delete button.dataset.copied;
+				}, 1000);
+			})
+		}
+		</script>
   </body>
 </html>

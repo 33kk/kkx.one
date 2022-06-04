@@ -38,6 +38,14 @@ body {
 	}
 }
 
+@mixin icons($icons...) {
+	@each $icon in $icons {
+		&.#{$icon} {
+			mask-image: url("/assets/icons/#{$icon}.svg");
+		}
+	}
+}
+
 .icon {
 	display: block;
 	width: 1.5rem;
@@ -45,18 +53,7 @@ body {
 	mask-size: cover;
 	background: var(--text);
 
-	&.telegram {
-		mask-image: url(/assets/icons/telegram.svg);
-	}
-	&.github {
-		mask-image: url(/assets/icons/github.svg);
-	}
-	&.twitch {
-		mask-image: url(/assets/icons/twitch.svg);
-	}
-	&.email {
-		mask-image: url(/assets/icons/email.svg);
-	}
+	@include icons(check, telegram, github, anilist, discord, twitch, email)
 }
 
 
@@ -86,12 +83,17 @@ main {
 	
 		grid:
 			"telegram github"
+			"anilist discord"
 			"twitch email"
 			/ 1fr 1fr;
 		gap: 0.5rem;
-		@include areas(telegram, github, twitch, email);
+		@include areas(telegram, github, anilist, discord, twitch, email);
+		
+		> button[data-copied], a:active {
+			background: hsl(230deg, 50%, 50%);
+		}
 
-		> a {
+		> * {
 			display: inline-flex;
 			align-items: center;
 
@@ -107,7 +109,7 @@ main {
 			outline: none;
 
 			box-shadow: 0 0 0.1rem var(--shadow-color);
-			transition: box-shadow 0.2s ease-in-out;
+			transition: box-shadow 0.2s ease-in-out, background 0.2s ease-in-out;
 
 			&:hover, &:focus {
 				box-shadow: 0.2rem 0.2rem 1rem var(--shadow-color);

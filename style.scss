@@ -86,8 +86,8 @@ main {
 
 		grid:
 			"telegram github"
-			"anilist discord"
-			"twitch email"
+			"email anilist"
+			"discord twitch"
 			/ 1fr 1fr;
 		gap: 0.5rem;
 		@include areas(telegram, github, anilist, discord, twitch, email);

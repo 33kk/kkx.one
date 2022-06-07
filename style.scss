@@ -74,6 +74,22 @@ main {
 	box-shadow: 1rem 1rem 5rem var(--shadow-color);
 	text-shadow: 0.2rem 0.2rem 1rem var(--shadow-color);
 
+	position: relative;
+	overflow: hidden;
+
+	> .pepega {
+		display: block;
+		position: absolute;
+
+		left: -0.5rem;
+		bottom: -1rem;
+		width: 2rem;
+		height: 2rem;
+
+		opacity: 0.1;
+		background: center / contain no-repeat url(/assets/pepega.png);
+	}
+
 	> .avatar {
 		width: 16rem;
 		height: 16rem;
